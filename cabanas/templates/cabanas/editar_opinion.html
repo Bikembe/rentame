@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Opinión</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: #f0ede5;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #6b4d3e;
+            border-bottom: 2px solid #c1a78e;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        form button {
+            background-color: #8b5e3c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #a46940;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #5a3e36;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            color: #a0522d;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Editar Opinión de {{ opinion.usuario }}</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar Cambios</button>
+    </form>
+    <a class="back-link" href="{% url 'detalle_cabana' opinion.cabana.id %}">Cancelar y volver</a>
+</div>
+</body>
+</html>

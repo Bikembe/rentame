@@ -1,0 +1,163 @@
+/* admin_custom.css */
+
+/* Fondo general */
+body {
+    background-color: #121417; /* casi negro */
+    color: #e0e6f1; /* texto claro y suave */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header principal */
+#header {
+    background-color: #0077b6; /* azul intenso */
+    border-bottom: 3px solid #00b4d8; /* azul claro */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+#header h1, #header #site-name a {
+    color: #caf0f8 !important; /* azul muy claro */
+    font-weight: 900;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+
+/* Navegación superior y links */
+#user-tools a {
+    color: #90e0ef !important;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 8px;
+}
+
+#user-tools a:hover {
+    color: #00b4d8 !important;
+    text-decoration: underline;
+}
+
+/* Barra lateral */
+#nav-sidebar {
+    background-color: #023e8a; /* azul más oscuro */
+    border-right: 2px solid #00b4d8;
+}
+
+#nav-sidebar .module {
+    background-color: transparent;
+}
+
+#nav-sidebar .module h2 {
+    color: #00b4d8;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+#nav-sidebar a {
+    color: #caf0f8;
+    font-weight: 600;
+}
+
+#nav-sidebar a:hover {
+    color: #00b4d8;
+}
+
+/* Links de acción (Add, Change) */
+a.addlink {
+    color: #00b4d8 !important;
+    font-weight: 700;
+}
+
+a.changelink {
+    color: #48cae4 !important;
+    font-weight: 700;
+}
+
+/* Contenido principal */
+#content-main {
+    background-color: #1b262c; /* azul oscuro grisáceo */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 180, 216, 0.5);
+}
+
+/* Tablas (listas) */
+table {
+    background-color: #0f4c75; /* azul más profundo */
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+}
+
+thead tr {
+    background-color: #3282b8; /* azul brillante */
+    color: #caf0f8;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: none !important;
+}
+
+tbody tr {
+    background-color: #1b262c;
+    border-radius: 8px;
+}
+
+tbody tr:hover {
+    background-color: #0a3d62;
+}
+
+/* Botones y selects */
+button, input[type="submit"], select, .button {
+    background-color: #00b4d8;
+    color: #121417;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, input[type="submit"]:hover, .button:hover {
+    background-color: #90e0ef;
+}
+
+/* Panel de filtros */
+fieldset.module {
+    background-color: #1b262c;
+    border: 2px solid #00b4d8;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    color: #caf0f8;
+}
+
+fieldset.module legend {
+    font-weight: 700;
+    color: #00b4d8;
+    padding: 0 10px;
+}
+
+/* Sidebar derecha (acciones recientes) */
+#recent-actions {
+    background-color: #1b262c;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 180, 216, 0.5);
+    padding: 15px;
+    margin-top: 20px;
+    color: #caf0f8;
+}
+
+/* Footer */
+#footer {
+    background-color: #0077b6;
+    color: #caf0f8;
+    border-top: 3px solid #00b4d8;
+    padding: 12px 20px;
+    text-align: center;
+    font-weight: 700;
+}

@@ -1,0 +1,28 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}Panel de Administración - Réntame{% endblock %}
+
+{% block branding %}
+<style>
+    .custom-header {
+        display: flex;
+        align-items: center;
+    }
+    .custom-header img {
+        height: 40px;
+        margin-right: 15px;
+        border-radius: 5px;
+    }
+    .custom-header h1 {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0;
+        color: #5a3e36;
+    }
+</style>
+<div class="custom-header">
+    <img src="{% static 'cabanas/img/logo_admin.jpg' %}" alt="Logo">
+    <h1>Réntame Admin</h1>
+</div>
+{% endblock %}

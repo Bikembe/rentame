@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Réntame - Cabañas en renta</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: #f7f3eb;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 960px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #6b4d3e;
+            border-bottom: 2px solid #c9b39c;
+            padding-bottom: 10px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        img {
+            width: 200px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        a {
+            text-decoration: none;
+            color: #8b5e3c;
+            font-weight: bold;
+        }
+        a:hover {
+            color: #a0522d;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Promociones del Mes</h1>
+    <ul>
+        {% for promo in promociones %}
+            <li>
+                <strong>{{ promo.cabana.nombre }}</strong><br>
+                {{ promo.descripcion }}<br>
+                <em>{{ promo.fecha_inicio }} - {{ promo.fecha_fin }}</em>
+            </li>
+        {% empty %}
+            <li>No hay promociones activas.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Catálogo de Cabañas</h2>
+    <ul>
+        {% for cabana in cabanas %}
+            <li>
+                <h3><a href="{% url 'detalle_cabana' cabana.id %}">{{ cabana.nombre }}</a></h3>
+                <p><strong>Precio:</strong> ${{ cabana.costo_por_dia }} por día</p>
+                <p><strong>Capacidad:</strong> {{ cabana.num_personas }} personas - {{ cabana.num_camas }} camas</p>
+                <img src="{{ cabana.imagen.url }}" alt="{{ cabana.nombre }}">
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+</body>
+</html>
+

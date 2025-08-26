@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ cabana.nombre }}</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4efe6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 8px;
+        }
+        h1, h2 {
+            color: #5a3e36;
+            border-bottom: 2px solid #c1a78e;
+            padding-bottom: 8px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        a {
+            text-decoration: none;
+            color: #8b5e3c;
+            margin-right: 10px;
+        }
+        a:hover {
+            color: #a0522d;
+        }
+        .btn {
+            background-color: #8b5e3c;
+            color: white;
+            padding: 8px 14px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background-color: #a46940;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>{{ cabana.nombre }}</h1>
+    <img src="{{ cabana.imagen.url }}" alt="{{ cabana.nombre }}">
+    <p><strong>Clave:</strong> {{ cabana.clave }}</p>
+    <p><strong>Precio:</strong> ${{ cabana.costo_por_dia }}</p>
+    <p><strong>Capacidad:</strong> {{ cabana.num_personas }} personas - {{ cabana.num_camas }} camas</p>
+    <p><strong>Servicios:</strong> {{ cabana.servicios }}</p>
+
+    <h2>Opiniones</h2>
+    <ul>
+        {% for opinion in opiniones %}
+            <li>
+                <strong>{{ opinion.usuario }}</strong> ({{ opinion.fecha|date:"d M Y" }})<br>
+                <p>{{ opinion.comentario }}</p>
+                {% if opinion.imagen %}
+                    <img src="{{ opinion.imagen.url }}" alt="Imagen opinión" width="200">
+                {% endif %}
+                <br>
+                <a class="btn" href="{% url 'editar_opinion' opinion.id %}">Editar</a>
+                <a class="btn" href="{% url 'eliminar_opinion' opinion.id %}">Eliminar</a>
+            </li>
+        {% empty %}
+            <li>No hay opiniones aún.</li>
+        {% endfor %}
+    </ul>
+
+    <a class="btn" href="{% url 'agregar_opinion' cabana.id %}">Agregar Opinión</a>
+    <a class="btn" href="{% url 'home' %}">Volver al inicio</a>
+</div>
+</body>
+</html>
+
+

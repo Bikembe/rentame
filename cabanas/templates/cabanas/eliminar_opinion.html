@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eliminar Opinión</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #faeee0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #842029;
+        }
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #dc3545;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+        }
+        a {
+            margin-left: 10px;
+            text-decoration: none;
+            color: #5a3e36;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>¿Eliminar esta Opinión?</h1>
+    <p><strong>{{ opinion.usuario }}</strong>: {{ opinion.comentario }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Sí, eliminar</button>
+        <a href="{% url 'detalle_cabana' opinion.cabana.id %}">Cancelar</a>
+    </form>
+</div>
+</body>
+</html>
